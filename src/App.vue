@@ -1,32 +1,29 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <TheMenu />
+    <div class="container-app">
+      <router-view />
     </div>
-    <router-view />
+    <TheFooter />
   </div>
 </template>
+<script>
+import TheMenu from "@/components/TheMenu.vue";
+import TheFooter from "@/components/TheFooter.vue";
+
+export default {
+  name: "Home",
+  components: {
+    TheMenu,
+    TheFooter
+  }
+};
+</script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+.container-app {
+  padding-top: 60px;
+  padding-bottom: 40px;
 }
 </style>
